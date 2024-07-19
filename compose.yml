@@ -1,5 +1,9 @@
 x-server-config: &server-config
     PORT: 4112
+    AWS_REGION: "eu-west-1"
+    AWS_DYNAMO_ENDPOINT: "http://dynamodb:8000"
+    AWS_ACCESS_KEY: dummyAccessKeyId
+    AWS_SECRET_KEY: dummySecretAccessKey
 
 services:
     server:
@@ -15,3 +19,9 @@ services:
         environment:
             <<: *server-config
         command: npm run dev
+
+    dynamodb:
+        image: amazon/dynamodb-local
+        container_name: bits-dynamodb
+        ports:
+            - 8001:8000

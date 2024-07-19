@@ -7,5 +7,9 @@ function mandatory(name: string) {
 }
 
 export const EnvService = {
-    PORT: process.env.PORT,
+    PORT: mandatory("PORT"),
+    AWS_REGION: mandatory("AWS_REGION"),
+    AWS_DYNAMO_ENDPOINT: mandatory("AWS_DYNAMO_ENDPOINT"),
+    AWS_ACCESS_KEY: mandatory("AWS_ACCESS_KEY"),
+    AWS_SECRET_KEY: mandatory("AWS_SECRET_KEY"),
 };

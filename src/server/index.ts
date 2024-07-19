@@ -8,6 +8,7 @@ import { RequestTracerMiddleware } from "./middleware/request-id";
 export const app = express();
 
 app.use(helmet());
+app.use(express.json());
 app.use(RequestLoggerMiddleware);
 app.use(RequestTracerMiddleware);
 app.use(router);
