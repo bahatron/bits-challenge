@@ -1,0 +1,8 @@
+services:
+    server:
+        build:
+            dockerfile: Dockerfile
+            context: .
+        volumes:
+            - /node_modules
+            - .:/app
