@@ -1,8 +1,17 @@
+x-server-config: &server-config
+    PORT: 4112
+
 services:
     server:
+        container_name: bits-server
         build:
             dockerfile: Dockerfile
             context: .
         volumes:
             - /node_modules
             - .:/app
+        ports:
+            - 4112:4112
+        environment:
+            <<: *server-config
+        command: npm run dev
