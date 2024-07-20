@@ -1,0 +1,6 @@
+dynamodb:
+    edge_port: 4566
+lambda:
+    edge_port: 4570
+apigateway:
+    edge_port: 4580

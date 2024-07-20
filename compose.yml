@@ -4,6 +4,7 @@ x-server-config: &server-config
     AWS_DYNAMO_ENDPOINT: "http://dynamodb:8000"
     AWS_ACCESS_KEY: dummyAccessKeyId
     AWS_SECRET_KEY: dummySecretAccessKey
+    AWS_ENDPOINT_URL: http://localstack:4566
 
 services:
     server:
@@ -25,3 +26,14 @@ services:
         container_name: bits-dynamodb
         ports:
             - 8001:8000
+
+    localstack:
+        image: localstack/localstack
+        ports:
+            - "4566-4599:4566-4599"
+            - "8080:8080"
+        environment:
+            - SERVICES=dynamodb,lambda,apigateway
+            - DEFAULT_REGION=us-west-1
+        volumes:
+            - ./localstack:/tmp/localstack

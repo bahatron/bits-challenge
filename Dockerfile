@@ -1,6 +1,6 @@
 FROM node:lts-slim AS src
 
-RUN npm i -g aws-cdk
+RUN npm i -g aws-cdk aws-cdk-local
 
 WORKDIR /app
 COPY ./package*.json ./

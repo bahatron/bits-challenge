@@ -2,14 +2,10 @@ import { RequestHandler } from "express";
 import { DynamoClient } from "../../services/dynamo";
 import { PutItemCommand } from "@aws-sdk/client-dynamodb";
 import { Logger } from "../../services/logger";
-import {
-    DbPaymentSchema,
-    PAYMENT_DYNAMO_TABLE,
-} from "../../dynamo-tables/payments";
-import { Type } from "@sinclair/typebox";
 import { JsonSchemaValidator } from "../../services/json-schema-validator";
 import { HttpError } from "../../services/http-error";
 import { AttributeType } from "@aws-cdk/aws-dynamodb";
+import { DbPaymentSchema, PAYMENT_DYNAMO_TABLE } from "../../models/payment";
 
 export const StorePaymentRoute: RequestHandler = async (req, res) => {
     Logger.debug({

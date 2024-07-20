@@ -8,8 +8,8 @@
         "build:clean": "rm -rf dist && npm run build",
         "build:watch": "npm run build -- --watch",
         "dev": "ts-node-dev --transpile-only src/index.ts",
-        "dev:docker": "docker compose up --build",
-        "dev:docker:clean": "docker compose down --remove-orphans --volumes && npm run dev:docker -- --force-recreate --renew-anon-volumes"
+        "docker": "docker compose up --build",
+        "docker:clean": "docker compose down --remove-orphans --volumes && npm run docker -- --force-recreate --renew-anon-volumes"
     },
     "repository": {
         "type": "git",
@@ -26,6 +26,7 @@
         "@aws-cdk/aws-dynamodb": "^1.32.2",
         "@aws-cdk/aws-lambda": "^1.19.0",
         "@aws-sdk/client-dynamodb": "^3.616.0",
+        "@aws-sdk/lib-dynamodb": "^3.616.0",
         "@sinclair/typebox": "^0.32.34",
         "@types/express": "^4.17.21",
         "@types/jest": "^29.5.12",
