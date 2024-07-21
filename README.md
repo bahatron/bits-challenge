@@ -1,6 +1,6 @@
 # Bits Challenge
 
-> Disclaimer: The CDK setup seems to be breaking even when everything it's according to documentation (not even ChatGPT is helping) so I've commented it out so at least you can spin the setup up.
+> Disclaimer: The CDK setup seems to be breaking even when everything it's according to documentation (not even ChatGPT is helping) so I've commented it out so at least you can spin the setup up. Also, I couldn't get CDK to config the local DynamoDB container. I'm not happy that's not working properly but I would need to setup an AWS account and take the proper time to get it working for real.
 
 ## Getting started
 
