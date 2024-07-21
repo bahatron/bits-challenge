@@ -1,5 +1,25 @@
 # Bits Challenge
 
+> Disclaimer: The CDK setup seems to be breaking even when everything it's according to documentation (not even ChatGPT is helping) so I've commented it out so at least you can spin the setup up.
+
+## Getting started
+
+```sh
+# works for Linux and MacOS. it should technically work for Windows as well but fs events don't get propagated :(
+npm run docker:clean
+
+# run the CDK stack. Tried automating this step but no luck
+docker exec bits-server sh -c "npm run cdk:local"
+
+# run tests
+docker exec bits-server sh -c "npm run test"
+```
+
+## OpenApi & Documentation
+
+-   Once dev environment is running, navigate to http://localhost:4112/docs
+-   For the openapi.json spec, navigate to http://localhost:4112/docs/swagger.json
+
 ## High level architecture
 
 System Overview ![](./docs/system-overview.png)
@@ -45,7 +65,3 @@ Steps:
 ## Operational Scaling
 
 100k monthly active users are not that many, and the endpoint is simply doing one write to a database, therefore the basic limitations of lambdas (1000 concurrent executions) should be enough. I'm a firm believer of KISS (keep it simple, stupid) so in the event of needed more compute, my first instinct would be to talk to the AWS team to increase the limit before resorting to queuing and batching mechanisms. If the compute requirements extremely exceeds the capacity of Lambda, I would opt for changing the implementation form Lambda to Elastic Beanstalk or ECS or even EKS. Mind you, this would only be feasible because I chose `server on a function`
-
-## Api Contract
-
-> TODO
